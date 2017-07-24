@@ -11,8 +11,10 @@ import CoreData
 
 
 extension Entry {
-    
-    
-    
-    
+    convenience init?(title: String, bodyText: String, timeStamp: Date, context: NSManagedObjectContext) {
+        self.init(context: context)
+        self.title = title
+        self.bodyText = bodyText
+        self.timeStamp = timeStamp as NSDate
+    }
 }
