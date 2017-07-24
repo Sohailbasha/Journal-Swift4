@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FDAFFF241F26828B009FC424 /* Journal4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDAFFF221F26828B009FC424 /* Journal4.xcdatamodeld */; };
 		FDAFFF261F2682EE009FC424 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFFF251F2682EE009FC424 /* EntryDetailViewController.swift */; };
+		FDAFFF2D1F26840C009FC424 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFFF2C1F26840C009FC424 /* CoreDataStack.swift */; };
+		FDAFFF2F1F268471009FC424 /* Entry + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAFFF2E1F268471009FC424 /* Entry + Convenience.swift */; };
 		FDEED95B1F267E56000AAD00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEED95A1F267E56000AAD00 /* AppDelegate.swift */; };
 		FDEED9621F267E56000AAD00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDEED9611F267E56000AAD00 /* Assets.xcassets */; };
 		FDEED9651F267E56000AAD00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDEED9631F267E56000AAD00 /* LaunchScreen.storyboard */; };
@@ -18,6 +20,9 @@
 /* Begin PBXFileReference section */
 		FDAFFF231F26828B009FC424 /* Journal4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Journal4.xcdatamodel; sourceTree = "<group>"; };
 		FDAFFF251F2682EE009FC424 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		FDAFFF291F2683D8009FC424 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FDAFFF2C1F26840C009FC424 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FDAFFF2E1F268471009FC424 /* Entry + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry + Convenience.swift"; sourceTree = "<group>"; };
 		FDEED9571F267E55000AAD00 /* Journal4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEED95A1F267E56000AAD00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDEED9611F267E56000AAD00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +42,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FDAFFF2A1F2683F2009FC424 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FDEED96C1F267F0B000AAD00 /* EntryListViewController.swift */,
+				FDAFFF251F2682EE009FC424 /* EntryDetailViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		FDAFFF2B1F2683FB009FC424 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDAFFF221F26828B009FC424 /* Journal4.xcdatamodeld */,
+				FDAFFF2C1F26840C009FC424 /* CoreDataStack.swift */,
+				FDAFFF2E1F268471009FC424 /* Entry + Convenience.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FDEED94E1F267E55000AAD00 = {
 			isa = PBXGroup;
 			children = (
@@ -57,9 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				FDEED95A1F267E56000AAD00 /* AppDelegate.swift */,
-				FDAFFF221F26828B009FC424 /* Journal4.xcdatamodeld */,
-				FDEED96C1F267F0B000AAD00 /* EntryListViewController.swift */,
-				FDAFFF251F2682EE009FC424 /* EntryDetailViewController.swift */,
+				FDAFFF2B1F2683FB009FC424 /* Model */,
+				FDAFFF291F2683D8009FC424 /* Main.storyboard */,
+				FDAFFF2A1F2683F2009FC424 /* View Controller */,
 				FDEED9611F267E56000AAD00 /* Assets.xcassets */,
 				FDEED9631F267E56000AAD00 /* LaunchScreen.storyboard */,
 				FDEED9661F267E56000AAD00 /* Info.plist */,
@@ -139,7 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAFFF2D1F26840C009FC424 /* CoreDataStack.swift in Sources */,
 				FDEED95B1F267E56000AAD00 /* AppDelegate.swift in Sources */,
+				FDAFFF2F1F268471009FC424 /* Entry + Convenience.swift in Sources */,
 				FDAFFF241F26828B009FC424 /* Journal4.xcdatamodeld in Sources */,
 				FDAFFF261F2682EE009FC424 /* EntryDetailViewController.swift in Sources */,
 				FDEED96D1F267F0B000AAD00 /* EntryListViewController.swift in Sources */,
