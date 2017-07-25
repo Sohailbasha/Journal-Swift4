@@ -11,27 +11,24 @@ import CoreData
 
 class EntryDetailViewController: UIViewController {
     
+    var entry: Entry?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateViewWith()
     }
     
     // Outlets
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextField: UITextView!
     
-    var entry: Entry? {
-        didSet {
-            if let entry = entry {
-                updateViewWith(entry)
-            }
-        }
-    }
     
     
-    func updateViewWith(_ entry: Entry) {
-        titleTextField.text = entry.title
-        bodyTextField.text = entry.bodyText
+    func updateViewWith() {
+        guard let entry = entry else { return }
+            titleTextField.text = entry.title
+            bodyTextField.text = entry.bodyText
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -41,11 +38,11 @@ class EntryDetailViewController: UIViewController {
                 entry.bodyText = bodyText
                 entry.timeStamp = Date()
             } else {
-                if let newEntry = Entry(title: title, bodyText: bodyText, timeStamp: Date()) {
-                    EntryController.sharedInstance.create(newEntry)
-                    entry = newEntry
-                }
+                guard let newEntry = Entry(title: title, bodyText: bodyText, timeStamp: Date()) else { return }
+                EntryController.sharedInstance.create(newEntry)
+                entry = newEntry
             }
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     
@@ -55,3 +52,28 @@ class EntryDetailViewController: UIViewController {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
