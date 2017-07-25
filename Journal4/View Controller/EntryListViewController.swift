@@ -10,21 +10,23 @@ import UIKit
 import CoreData
 
 class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        fetchedResultsController.delegate = self
     }
+    
+    
     
     // OUTLETS
     @IBOutlet var tableView: UITableView!
     
-    // PROPERTIES
     
+    // PROPERTIES
     let fetchedResultsController: NSFetchedResultsController<Entry> = {
         // 1 create fetchRequest
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
@@ -41,12 +43,19 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     // monitors everything inside of the MOC ^. Communicates with the delegate.
     
     
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath) as UITableViewCell
+        let entry = fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = entry.title
+        cell.detailTextLabel?.text = entry.bodyText
         return cell
     }
     
@@ -55,14 +64,39 @@ class EntryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showEntry" {
+            if let destinationVC = segue.destination as? EntryDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                let entry = fetchedResultsController.object(at: indexPath)
+                
+                destinationVC.entry = entry
+                
+            }
+        }
+        
     }
-    */
-
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
