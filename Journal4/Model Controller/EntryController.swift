@@ -10,27 +10,19 @@ import Foundation
 
 class EntryController {
     
-    
-    // CRUD
-    
-    
-    // R: READ
     let sharedInstance = EntryController()
     
     func create(_ entry: Entry) {
-        
+        saveEntry()
     }
     
     func delete(_ entry: Entry) {
-        try? CoreDataStack.context.delete(entry)
+        entry.managedObjectContext?.delete(entry)
+        saveEntry()
     }
     
     func saveEntry() {
         try? CoreDataStack.context.save()
-    }
-    
-    func loadEntry() {
-        
     }
     
 }

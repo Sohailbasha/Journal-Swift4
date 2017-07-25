@@ -45,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD4C632A1F27BDF3002A8D78 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FDAFFF301F268614009FC424 /* EntryController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 		FDAFFF2A1F2683F2009FC424 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,8 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				FDEED95A1F267E56000AAD00 /* AppDelegate.swift */,
-				FDAFFF301F268614009FC424 /* EntryController.swift */,
 				FDAFFF2B1F2683FB009FC424 /* Model */,
+				FD4C632A1F27BDF3002A8D78 /* Model Controller */,
 				FDAFFF2A1F2683F2009FC424 /* View Controller */,
 				FDEED9611F267E56000AAD00 /* Assets.xcassets */,
 				FDAFFF291F2683D8009FC424 /* Main.storyboard */,

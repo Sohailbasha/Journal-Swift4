@@ -7,19 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
-class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EntryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
     }
-
+    
+    // OUTLETS
     @IBOutlet var tableView: UITableView!
     
+    // PROPERTIES
     
+    let fetchedResultsController: NSFetchedResultsController<Entry> = {
+        // 1 create fetchRequest
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+        // 2 create sort descriptors
+        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        
+        // 3 assign sort descriptors to the fetch request
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // 4 create and return the fetched results controller using our fetchRequest and our sort descriptors
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
+    }()
+    // monitors everything inside of the MOC ^. Communicates with the delegate.
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
