@@ -17,17 +17,16 @@ class EntryController {
     // R: READ
     let sharedInstance = EntryController()
     
-    func createEntry() {
+    func create(_ entry: Entry) {
         
     }
     
-    func deleteEntry() {
-        
+    func delete(_ entry: Entry) {
+        try? CoreDataStack.context.delete(entry)
     }
     
     func saveEntry() {
-        let moc = CoreDataStack.context
-        
+        try? CoreDataStack.context.save()
     }
     
     func loadEntry() {

@@ -15,6 +15,6 @@ extension Entry {
         self.init(context: context)
         self.title = title
         self.bodyText = bodyText
-        self.timeStamp = timeStamp as NSDate
+        self.timeStamp = timeStamp
     }
 }
