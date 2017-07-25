@@ -10,7 +10,7 @@ import Foundation
 
 class EntryController {
     
-    let sharedInstance = EntryController()
+    static let sharedInstance = EntryController()
     
     func create(_ entry: Entry) {
         saveEntry()

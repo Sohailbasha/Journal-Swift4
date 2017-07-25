@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -129,6 +130,24 @@
                             <constraint firstAttribute="trailing" secondItem="Ao0-vZ-fM8" secondAttribute="trailing" id="qRQ-tJ-DC8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="28E-rf-iPB">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="m3t-W4-5Nk">
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="Nzx-e5-Pga" id="kJv-Hs-066"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="OYZ-SM-SnE">
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="Nzx-e5-Pga" id="aA6-yi-siI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextField" destination="Sz1-Am-yf1" id="yxp-cY-gYQ"/>
+                        <outlet property="titleTextField" destination="lcE-Ff-zGP" id="zWL-p7-jj7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyh-zL-mUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

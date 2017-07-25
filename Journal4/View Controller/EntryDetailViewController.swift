@@ -15,15 +15,37 @@ class EntryDetailViewController: UIViewController {
         
     }
     
+    // Outlets
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var bodyTextField: UITextView!
+    
+    
+    
+    
     var entry: Entry? {
         didSet {
-            updateView()
+            if let entry = entry {
+                updateViewWith(entry)
+            }
         }
     }
     
     
-    func updateView() {
+    func updateViewWith(_ entry: Entry) {
+        titleTextField.text = entry.title
+        bodyTextField.text = entry.bodyText
         
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        if let entry = entry {
+            
+        }
+    }
+    
+    @IBAction func clearButtonTapped(_ sender: Any) {
+        titleTextField.text = ""
+        bodyTextField.text = ""
     }
     
 }
