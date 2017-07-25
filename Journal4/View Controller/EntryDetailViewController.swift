@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreData
 
 class EntryDetailViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,9 +19,6 @@ class EntryDetailViewController: UIViewController {
     // Outlets
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextField: UITextView!
-    
-    
-    
     
     var entry: Entry? {
         didSet {
@@ -34,12 +32,20 @@ class EntryDetailViewController: UIViewController {
     func updateViewWith(_ entry: Entry) {
         titleTextField.text = entry.title
         bodyTextField.text = entry.bodyText
-        
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if let entry = entry {
-            
+        if let title = titleTextField.text, !title.isEmpty, let bodyText = bodyTextField.text, !bodyText.isEmpty {
+            if let entry = entry {
+                entry.title = title
+                entry.bodyText = bodyText
+                entry.timeStamp = Date()
+            } else {
+                if let newEntry = Entry(title: title, bodyText: bodyText, timeStamp: Date()) {
+                    EntryController.sharedInstance.create(newEntry)
+                    entry = newEntry
+                }
+            }
         }
     }
     
